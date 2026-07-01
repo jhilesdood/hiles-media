@@ -68,10 +68,10 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { value: 250, suffix: "+", label: "Films shipped" },
-  { value: 800, suffix: "M", label: "Views generated" },
+  { value: 100, suffix: "+", label: "Reels shipped" },
+  { value: 2, suffix: "M", label: "Views generated" },
   { value: 60, suffix: "+", label: "Brands & artists" },
-  { value: 9, suffix: "", label: "Awards & features" },
+  { value: 2, suffix: "", label: "Awards & features" },
 ];
 
 export interface Testimonial {
@@ -146,4 +146,4 @@ export const social = [
   { label: "LinkedIn", href: "https://linkedin.com" },
 ];
 
-export const contactEmail = "hello@hilesmedia.com";
+export const contactEmail = "joey@hilesmedia.com";
