@@ -1,0 +1,33 @@
+# dependencies
+node_modules
+
+# build output
+dist
+dist-ssr
+
+# logs
+*.log
+npm-debug.log*
+
+# editor / os
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# env
+.env
+.env.local
+*.local
+
+# ts build info
+*.tsbuildinfo
+
+# vercel
+.vercel
+
+# large source media — host the video on Vimeo/YouTube and embed it instead of
+# committing/deploying these (GitHub rejects files > 100 MB; Vercel bandwidth
+# would be eaten alive). Kept locally for dev; never pushed or deployed.
+public/videos/showreel.mp4
+public/videos/showreelimage.png

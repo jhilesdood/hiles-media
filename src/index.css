@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --paper: #f5f0e7;
+    --paper-2: #fbf8f2;
+    --ink: #16130f;
+    --ink-soft: #4a443c;
+    --muted: #7a736a;
+    --amber: #cb8a4e;
+    --amber-deep: #9c4e28;
+    --night: #141210;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Lenis smooth-scroll: disable native smooth scroll while active */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    overflow-x: hidden;
+    /* film-grain + subtle vignette on the paper */
+    background-image: radial-gradient(
+      120% 120% at 50% -10%,
+      rgba(224, 145, 58, 0.06),
+      transparent 55%
+    );
+  }
+
+  ::selection {
+    background: var(--amber);
+    color: var(--night);
+  }
+
+  /* Distinct focus ring for keyboard users only */
+  :focus-visible {
+    outline: 2px solid var(--amber-deep);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    letter-spacing: -0.03em;
+    line-height: 0.92;
+  }
+}
+
+@layer utilities {
+  .font-feature-tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Grain overlay used on dark bands */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1.5px var(--ink);
+    color: transparent;
+  }
+  .text-stroke-paper {
+    -webkit-text-stroke: 1.5px var(--paper);
+    color: transparent;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    will-change: transform;
+  }
+}
+
+/* Hide default cursor on desktop when custom cursor is active */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor,
+  body.custom-cursor * {
+    cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}
