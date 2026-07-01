@@ -198,8 +198,8 @@ export function Hero() {
           className="mt-14 flex flex-col gap-8 border-t border-ink/10 pt-7 md:flex-row md:items-center md:justify-between"
         >
           <div className="flex gap-10 sm:gap-16">
-            <Stat value="+250" label="Films that reach wide and land deep" />
-            <Stat value="+800M" label="Views across every screen we touch" />
+            <Stat value="+75" label="Clients served, from startups to brands" />
+            <Stat value="2M" label="Views generated across every screen" />
           </div>
         </motion.div>
       </div>
